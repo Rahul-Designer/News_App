@@ -21,6 +21,8 @@ A bit overview, it uses newsapi.org API to get news and get JSON data back. Then
 
 
 #### Libraries
+- [Firebase](https://firebase.google.com/) For User Authentication
 - [Google gson](https://github.com/google/gson) For parsing JSON data
+- [Coroutines](https://developer.android.com/kotlin/coroutines) For manage long-running tasks
 - [Retrofit](http://square.github.io/retrofit/) For sending network requests
 - [Glide](https://github.com/bumptech/glide) Loading and caching images
