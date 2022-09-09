@@ -6,6 +6,7 @@ import android.app.Instrumentation
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -16,6 +17,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_news.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
@@ -35,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         google_sign_btn.setOnClickListener {
             signInGoogle()
         }
+
+
         sign_in_btn.setOnClickListener {
             val email = edt_email.text.toString()
             val password = edt_password.text.toString()
@@ -55,12 +59,11 @@ class MainActivity : AppCompatActivity() {
             edt_password.text = null
         }
 
-
-
         register.setOnClickListener {
             startActivity(Intent(this,Sign_up::class.java))
             finish()
         }
+
         sign_up.setOnClickListener {
             startActivity(Intent(this,Sign_up::class.java))
             finish()
@@ -71,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         val signInIntent = this.googleSignInClient.signInIntent
         launcher.launch(signInIntent)
     }
+
     private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
         result ->
                 if(result.resultCode == Activity.RESULT_OK){

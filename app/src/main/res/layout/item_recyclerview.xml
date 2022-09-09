@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="3dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginHorizontal="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2022-09-08T20:07:00Z"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+                <TextView
+                    android:id="@+id/txt_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="The Wall Street Journal"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:text="Apple announces a new Apple Watch SE"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="8dp"
+                android:text="Apple revealed its newest budget-friendly cellular smartwatch today. The Apple Watch SE is the second generation of the Apple Watch SE, a model that’s popular with families thanks to Apple’s Family Setup."
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_height="160dp"
+            app:cardCornerRadius="10dp"
+            app:cardUseCompatPadding="true"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/newsImage"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/social" />
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
