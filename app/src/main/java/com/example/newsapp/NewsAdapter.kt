@@ -9,9 +9,11 @@ import com.bumptech.glide.Glide
 import com.example.newsapp.Model.Article
 import kotlinx.android.synthetic.main.item_recyclerview.view.*
 
-class NewsAdapter(private val context: Context, private val articles: List<Article>): RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
+class NewsAdapter(private val context: Context, private val articles: List<Article>) :
+    RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(info : Article){
+
+        fun bind(info: Article) {
             itemView.date.text = info.publishedAt
             itemView.txt_author.text = info.author
             itemView.txt_heading.text = info.title

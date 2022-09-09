@@ -8,11 +8,9 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface NewsService {
-    //    @GET("/v2/everything?q=apple&from=2022-09-04&to=2022-09-04&sortBy=popularity&apiKey=220b38415ea845af881e6d667be4b154")
+    // https://newsapi.org/v2/everything?q=apple&sortBy=latest&apiKey=220b38415ea845af881e6d667be4b154
 
-//    "v2/top-headlines?country=us&category=business&apiKey=220b38415ea845af881e6d667be4b154"
-
-
+    // show in recyclerview
     @GET("v2/everything")
     suspend fun getNews(
         @Query("q")
@@ -23,6 +21,7 @@ interface NewsService {
         apiKey: String = API_KEY
     ): Response<NewsResponse>
 
+    // Search News
     @GET("v2/everything")
     suspend fun searchNews(
         @Query("q")

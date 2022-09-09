@@ -22,23 +22,26 @@ import kotlinx.android.synthetic.main.activity_news.*
 class MainActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var googleSignInClient : GoogleSignInClient
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         firebaseAuth = FirebaseAuth.getInstance()
 
+        // Google Sign Option
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(this,gso)
 
+        //Google Sign
         google_sign_btn.setOnClickListener {
             signInGoogle()
         }
 
-
+        // Sign with Email I'd and Password
         sign_in_btn.setOnClickListener {
             val email = edt_email.text.toString()
             val password = edt_password.text.toString()

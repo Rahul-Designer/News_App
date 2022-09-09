@@ -19,6 +19,7 @@ class Sign_up : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
+        // Sign Up
         sign_up_btn.setOnClickListener {
             val name = edt_name.text.toString()
             val email = edt_email.text.toString()
