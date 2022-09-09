@@ -16,7 +16,7 @@ A bit overview, it uses newsapi.org API to get news and get JSON data back. Then
     ``` 
 
 
-#### Demo
+#### Demo Video
 <img src="newsAppDemo.mp4" width="40%">
 
 
