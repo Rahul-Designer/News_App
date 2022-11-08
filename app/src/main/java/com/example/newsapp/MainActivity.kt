@@ -2,13 +2,11 @@ package com.example.newsapp
 
 
 import android.app.Activity
-import android.app.Instrumentation
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -17,7 +15,6 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_news.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
@@ -36,6 +33,16 @@ class MainActivity : AppCompatActivity() {
             .build()
         googleSignInClient = GoogleSignIn.getClient(this,gso)
 
+
+        // Shared Preference Code
+        val pref = getSharedPreferences("login", MODE_PRIVATE)
+        val check = pref.getBoolean("flag", false)
+        if (check) { // for true Login (User already login )
+            startActivity(Intent(this@MainActivity, NewsActivity::class.java))
+            finish()
+        }
+
+
         //Google Sign
         google_sign_btn.setOnClickListener {
             signInGoogle()
@@ -50,6 +57,11 @@ class MainActivity : AppCompatActivity() {
             else {
                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                     if (it.isSuccessful) {
+                        // Shared Preference
+                        val pref = getSharedPreferences("login", MODE_PRIVATE)
+                        val editor = pref.edit()
+                        editor.putBoolean("flag", true)
+                        editor.apply()
                         startActivity(Intent(this, NewsActivity::class.java))
                         finish()
                     }
@@ -101,6 +113,11 @@ class MainActivity : AppCompatActivity() {
         val credential = GoogleAuthProvider.getCredential(account.idToken,null)
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener{
             if (it.isSuccessful){
+                // Shared Preference
+                val pref = getSharedPreferences("login", MODE_PRIVATE)
+                val editor = pref.edit()
+                editor.putBoolean("flag", true)
+                editor.apply()
                 startActivity(Intent(this, NewsActivity::class.java))
                 finish()
             }
@@ -110,4 +127,5 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 }
