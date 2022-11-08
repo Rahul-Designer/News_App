@@ -25,7 +25,7 @@ interface NewsService {
     @GET("v2/everything")
     suspend fun searchNews(
         @Query("q")
-        news: String = "apple",
+        news: String,
         @Query("sortBy")
         sort : String = "latest",
         @Query("apiKey")
